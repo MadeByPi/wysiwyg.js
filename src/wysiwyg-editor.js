@@ -1,6 +1,15 @@
-(function(window, document, $, undefined){
+(function(factory) { 'use strict';
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], function($){
+            factory(window, document, $);
+        });
+    } else if (typeof exports !== 'undefined') {
+        module.exports = factory(window, document, require('jquery'));
+    } else {
+        factory(window, document, jQuery);
+    }
+}(function(window, document, $, undefined){
     'use strict';
-
     // http://stackoverflow.com/questions/17242144/javascript-convert-hsb-hsv-color-to-rgb-accurately
     var HSVtoRGB = function( h, s, v )
     {
@@ -722,4 +731,4 @@
         }
         return false;
     };
-})(window, document, jQuery);
+}));
